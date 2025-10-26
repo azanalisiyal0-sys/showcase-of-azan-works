@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+        content="width=device-width,
+        initial-scale=1.0">
+        <title>HAPPY BIRTHDAY</title>>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Dancing Script' ,
+                cursive;
+                text-align: center;
+                background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+                overflow-x: hidden;
+            }
+            h1 {
+                font-size: 3em;
+                color: rgb(248, 80, 80);
+                margin-top: 50px;
+                animation: fadeIn 3s ease-in-out;
+            }
+            h2 {
+                font-size: 2em;
+                color: rgb(248, 80, 80);
+                margin: 20px;
+                animation: slideUp 2s ease-in-out;
+            }
+            p {
+                font-size: 1.3em;
+                color: rgb(248, 80, 80);
+                max-width: 600px;
+                margin: 20px auto;
+                line-height: 1.6;
+                animation: fadeIn 4s ease-in-out;
+            }
+            img {
+                width: 200px;
+                height: 200px;
+                align-items: center;
+            }
+            .gallery {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 30px auto;
+                gap: 20px;
+            }
+            .gallery {
+                width: 250px;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 20px;
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+                transition: transform 0.4s;
+            }
+            .gallery img:hover {
+                transform: scale(1.1);
+            }
+            @keyframes fadeIn {
+                from {opacity: 0;}
+                to {opacity: 1;}
+            }
+            @keyframes slideUp {
+                from {transform: trnslateY(50px); opacity: 0;}
+                to {transform: translateY(0); opacity: 1;} 
+            }
+            canvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+            }
+            </style>
+            </head>
+            <body>
+                <canvas id="confetti"></canvas>
+                <h1>HAPPY BIRTHDAY</h1>
+                <h2>Wishing you joy, laughter & happiness today and always</h2>
+                <p>
+                         Dear Inshra, <br><br> Distance may keep us apart, 
+                    but my wishes are flying across borders to reach you.
+                         May your day be filled with endless smales, sweet surprises, 
+                    and all the love deserve.
+                         Happy Birthday
+                </p>
+
+                <img src="3dcharacter.jpg"></a>
+                
+                <script>
+                    // confetti effect
+                    const canvas =
+                document.getElementById('confetti');
+                    const ctx =
+                canvas.getContext('2d');
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+
+                    const pieces = [];
+                    const numPieces = 150;
+
+                    class confetti {
+                        constructor() {
+                            this.x = Math.random() *
+                            canvas.width;
+                            this.y = Math.random() *
+                            canvas.height - canvas.height;
+                            this.size = Math.random() * 
+                            10 + 5;
+                            this.speed = Math.random() *
+                            3 + 2;
+                            this.color = 'hsl($ {Math.random() * 360}, 100%, 50%)';
+                        }
+                        update() {
+                            this.y += this.speed;
+                            if (this.y > canvas.height) {
+                                this.y = -this.size;
+                                this.x = Math.random() *
+                                canvas.width;
+                            }
+                        }
+                        draw() {
+                            ctx.fillstyle = this.color;
+                            ctx.beginPath();
+                            ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+                            ctx.fill();
+                        }
+                    }
+                    for (let i = 0; i < numpeices; i++)
+                    {
+                        pieces.push(new Confetti());
+                    }
+                    function animate() {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        pieces.forEach(p => {
+                            p.update();
+                            p.draw();
+                        });
+                        requestAnimationFrame(animate);
+                    }
+                    animate();
+                    window.addElementListener('resize',() => {
+                        camva.width = window.innerWidth;
+                        canvas.height = 
+                        window.innerHeight;
+                    });
+            </script>
+        </body>
+        </html>            
+
+
+
+
+
+
+
+
+
+
+
+
